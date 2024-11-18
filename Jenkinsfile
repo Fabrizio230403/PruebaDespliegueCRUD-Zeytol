@@ -1,22 +1,30 @@
-pipeline{
+pipeline {
     agent any
-    stages{
-        stage ('Build'){
-            steps{
-                echo "Etapa BUILD no disponible"
-            }
-        }
-        stage ('Tests'){
-            steps{
-                echo "Etapa TEST no disponible"
-            }
-        }
-        stage ('Deploy') {
+
+    stages {
+        stage('Checkout') {
             steps {
-                bat """
-                    docker-compose down -v
-                    docker-compose up -d
-                """
+                checkout scm
+            }
+        }
+        stage('Build') {
+            steps {
+                // Agregar comandos de construcción (compilación)
+                echo 'Building the project...'
+            }
+        }
+        stage('Test') {
+            steps {
+                // Agregar comandos de pruebas
+                echo 'Running tests...'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                script {
+                    sh 'docker-compose down -v'
+                    sh 'docker-compose up -d'
+                }
             }
         }
     }
