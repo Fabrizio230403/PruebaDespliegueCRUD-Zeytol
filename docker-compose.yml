@@ -1,7 +1,23 @@
 services:
-  app:
+ app:
     build:
       context: .
       dockerfile: Dockerfile
+    ports:
+      - "8082:8080"  # Mapear el puerto 8080 dentro del contenedor al puerto 8082 en tu máquina local
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db:3306/tarea16?serverTimezone=UTC
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=admin
+      - SPRING_DATASOURCE_DRIVER_CLASS_NAME=com.mysql.cj.jdbc.Driver
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    depends_on:
+      - mysql-db
+
+  mysql-db:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: tarea16
     ports:
       - "8082:8080"
