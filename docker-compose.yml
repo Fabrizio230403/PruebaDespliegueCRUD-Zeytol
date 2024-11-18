@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8081:8080"  # Mapea el puerto 8080 del contenedor al puerto 8081 de tu máquina local
+      - "8082:8080"  # Mapea el puerto 8080 del contenedor al puerto 8081 de tu máquina local
     environment:
       - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db:3306/tarea16?serverTimezone=UTC
       - SPRING_DATASOURCE_USERNAME=root
