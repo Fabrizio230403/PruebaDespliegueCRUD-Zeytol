@@ -22,8 +22,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    sh 'docker-compose down -v'
-                    sh 'docker-compose up -d'
+                    bat 'docker-compose down -v'
+                    bat 'docker-compose up -d'
                 }
             }
         }
