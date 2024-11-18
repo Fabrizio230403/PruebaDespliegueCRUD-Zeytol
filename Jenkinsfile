@@ -13,7 +13,7 @@ pipeline{
         }
         stage ('Deploy'){
             steps{
-                sh "docker-compose down -v"
+                bat "docker-compose down -v"
             }
         }
     }
