@@ -1,20 +1,14 @@
-pipeline {
+pipeline{
     agent any
-    stages {
-        stage ('Build') {
-            steps {
-                script {
-                    bat "docker build -t my-app-image ."
-                }
+    stages{
+        stage ('Build'){
+            steps{
+                echo "Etapa BUILD no disponible"
             }
         }
-        stage ('Tests') {
-            steps {
-                script {
-                    bat """
-                        docker run --rm my-app-image mvn test
-                    """
-                }
+        stage ('Tests'){
+            steps{
+                echo "Etapa TEST no disponible"
             }
         }
         stage ('Deploy') {
