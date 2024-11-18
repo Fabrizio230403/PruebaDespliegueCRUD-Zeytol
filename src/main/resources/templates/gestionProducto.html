@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Gestion de Productos</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+
+</head>
+<body>
+	<div class="table-container">
+		<a th:href="@{/new}" class="btn btn-primary">Nuevo Registro</a>
+		<h2 class="text-center mb-4">Lista de Productos</h2>
+
+		<div class="table-responsive">
+			<table class="table table-bordered">
+				<thead class="thead-dark">
+					<tr>
+						<th>#</th>
+						<th>Nombre del Producto</th>
+						<th>Descripcion</th>
+						<th>Precio</th>
+						<th>Stock</th>
+						<th>Categoría</th>
+						<th>Proveedor</th>
+						<th>Estado</th>
+						<th>Imagen</th>
+						<th>Acciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="producto:${productos}">
+						<td th:text="${producto.id}"></td>
+						<td th:text="${producto.nombre}"></td>
+						<td th:text="${producto.descripcion}"></td>
+						<td th:text="${producto.precio}"></td>
+						<td th:text="${producto.stock}"></td>
+						<td th:text="${producto.categoria == 'L' ? 'Laptops' : 'Audifonos'}"></td>
+						<td th:text="${producto.proveedor == 'N' ? 'Nike' : 'Adidas'}"></td>
+						<td th:text="${producto.estado == 'A' ? 'Activo' : 'Inactivo'}"></td>
+						<td>
+						    <img th:src="@{${producto.imagenRuta}}" alt="Foto del Cliente" class="img-fluid rounded-circle" style="width: 50px; height: 50px; object-fit: cover;" />
+						</td>
+						<td>
+							<a th:href="@{/editar/}+${producto.id}" class="btn btn-warning btn-sm">Editar</a> 
+							<a th:onclick="eliminar([[${producto.id}]])" class="btn btn-danger btn-sm">Eliminar</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+
+	<script src="funciones.js"></script>
+</body>
+</html>
