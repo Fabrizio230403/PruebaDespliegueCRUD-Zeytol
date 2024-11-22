@@ -19,6 +19,9 @@ FROM openjdk:17-jdk-slim
 # Set the working directory
 WORKDIR /home/app
 
+# Expose the application port
+EXPOSE 8091
+
 # Copy the built JAR file from the previous stage
 COPY --from=build /home/app/target/*.jar app.jar
 
