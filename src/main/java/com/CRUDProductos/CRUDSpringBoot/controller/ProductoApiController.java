@@ -33,7 +33,7 @@ public class ProductoApiController {
 	@Autowired
 	private IproductoService service;
 	
-	@GetMapping("/listar")
+	@GetMapping({"/", "/listar"})
 	public List<Producto> listarProductos(){
 		return service.listar();
 	}
