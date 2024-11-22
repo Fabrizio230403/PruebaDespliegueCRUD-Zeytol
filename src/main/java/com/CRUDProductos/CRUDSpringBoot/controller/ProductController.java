@@ -24,7 +24,7 @@ import com.CRUDProductos.CRUDSpringBoot.modelo.Producto;
 import jakarta.validation.Valid;
 
 @Controller
-@RequestMapping
+@RequestMapping("/productos")
 public class ProductController {
 	
 	@Autowired
