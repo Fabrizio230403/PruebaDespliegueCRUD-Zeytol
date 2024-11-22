@@ -27,13 +27,13 @@ import com.CRUDProductos.CRUDSpringBoot.modelo.Producto;
 
 
 @RestController
-@RequestMapping 
+@RequestMapping("/api/productos")
 public class ProductoApiController {
 	
 	@Autowired
 	private IproductoService service;
 	
-	@GetMapping("/listarProductos")
+	@GetMapping
 	public List<Producto> listarProductos(){
 		return service.listar();
 	}
