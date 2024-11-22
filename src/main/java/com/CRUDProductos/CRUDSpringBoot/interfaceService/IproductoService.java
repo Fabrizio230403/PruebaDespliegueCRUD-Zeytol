@@ -11,4 +11,6 @@ public interface IproductoService {
 	public int save(Producto p);
 	public void delete(int id);
 	
+	//Método API
+	public Producto saveAndReturnProducto(Producto p); 
 }

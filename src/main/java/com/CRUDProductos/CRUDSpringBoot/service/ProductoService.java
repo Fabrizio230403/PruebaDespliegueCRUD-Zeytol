@@ -10,6 +10,7 @@ import com.CRUDProductos.CRUDSpringBoot.interfaceService.IproductoService;
 import com.CRUDProductos.CRUDSpringBoot.interfaces.IProducto;
 import com.CRUDProductos.CRUDSpringBoot.modelo.Producto;
 
+
 @Service
 public class ProductoService implements IproductoService{
 	@Autowired
@@ -40,4 +41,9 @@ public class ProductoService implements IproductoService{
 		
 	}
 	
+	//Método API para guardar y actualizar un cliente
+		@Override
+		public Producto saveAndReturnProducto(Producto producto) {
+		    return data.save(producto);
+		}
 }
