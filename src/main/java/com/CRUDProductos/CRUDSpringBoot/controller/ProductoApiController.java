@@ -33,7 +33,7 @@ public class ProductoApiController {
 	@Autowired
 	private IproductoService service;
 	
-	@GetMapping
+	@GetMapping("/listar")
 	public List<Producto> listarProductos(){
 		return service.listar();
 	}
@@ -45,7 +45,7 @@ public class ProductoApiController {
 	}
 	
 	
-	//Este método recibe un objeto Cliente en JSON sin manejo de archivos.
+	//Este método recibe un objeto Producto en JSON sin manejo de archivos.
 	
 	/*@PostMapping
 	public ResponseEntity<Cliente> guardarCliente(@RequestBody Cliente cliente) {
